@@ -15,7 +15,7 @@ Import the directive and attach it to any component.
 
 #### Example:
 
-> Important: `OnGoogleAuthSuccess` and `OnGoogleAuthFail` are mandatory methods you have to declare in your component where you are using the directive.
+> Important: `OnGoogleSheetsAuthSuccess` and `OnGoogleSheetsAuthFail` are mandatory methods you have to declare in your component where you are using the directive.
 
 
 ``` html
@@ -33,11 +33,11 @@ export default {
     clientId: 'Your_Google_Client_ID'
   }),
   methods: {
-    OnGoogleAuthSuccess (authData) {
+    OnGoogleSheetsAuthSuccess (authData) {
       // Receive the authenticated data (access_token, id token ...) and make your magic with the backend
 
     },
-    OnGoogleAuthFail (error) {
+    OnGoogleSheetsAuthFail (error) {
       console.log(error)
     }
   }
