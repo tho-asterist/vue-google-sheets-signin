@@ -26,20 +26,20 @@ export default Vue.directive('google-sheets-signin-button', {
         }
 
         function OnSuccess(googleUser) {
-            vnode.context.OnGoogleAuthSuccess(googleUser.getAuthResponse())
+            vnode.context.OnGoogleSheetsAuthSuccess(googleUser.getAuthResponse())
         }
 
         function OnFail(error) {
-            vnode.context.OnGoogleAuthFail(error)
+            vnode.context.OnGoogleSheetsAuthFail(error)
         }
 
         function CheckComponentMethods() {
-            if (!vnode.context.OnGoogleAuthSuccess) {
-                throw new Error('The method OnGoogleAuthSuccess must be defined on the component')
+            if (!vnode.context.OnGoogleSheetsAuthSuccess) {
+                throw new Error('The method OnGoogleSheetsAuthSuccess must be defined on the component')
             }
 
-            if (!vnode.context.OnGoogleAuthFail) {
-                throw new Error('The method OnGoogleAuthFail must be defined on the component')
+            if (!vnode.context.OnGoogleSheetsAuthFail) {
+                throw new Error('The method OnGoogleSheetsAuthFail must be defined on the component')
             }
         }
     }

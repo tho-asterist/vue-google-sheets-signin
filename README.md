@@ -24,7 +24,7 @@ Import the directive and attach it to any component.
 </template>
 
 <script>
-import GoogleSheetsSignInButton from 'vue-google-sheets-signin-button-directive'
+import GoogleSheetsSignInButton from 'vue-google-sheets-signin'
 export default {
   directives: {
     GoogleSheetsSignInButton
