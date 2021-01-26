@@ -34,8 +34,7 @@ export default {
   }),
   methods: {
     OnGoogleSheetsAuthSuccess (authData) {
-      // Receive the authenticated data (access_token, id token ...) and make your magic with the backend
-
+      // Receive the authenticated data (access_token, refresh_token, id_token ...) and make your magic with the backend
     },
     OnGoogleSheetsAuthFail (error) {
       console.log(error)

@@ -16,7 +16,9 @@ export default Vue.directive('google-sheets-signin-button', {
                     client_id: clientId,
                     scope: 'https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/spreadsheets',
                     cookie_policy: 'single_host_origin',
-                    fetch_basic_profile: false
+                    fetch_basic_profile: false,
+                    access_type: 'offline',
+                    response_type: 'token'
                 })
                 auth2.attachClickHandler(el, {},
                     OnSuccess,
@@ -26,7 +28,11 @@ export default Vue.directive('google-sheets-signin-button', {
         }
 
         function OnSuccess(googleUser) {
-            vnode.context.OnGoogleSheetsAuthSuccess(googleUser.getAuthResponse())
+            let authResponse = googleUser.getAuthResponse()
+            googleUser.grantOfflineAccess().then((res) => {
+                authResponse.refresh_token = res.code;
+                vnode.context.OnGoogleSheetsAuthSuccess(authResponse)
+            });
         }
 
         function OnFail(error) {
